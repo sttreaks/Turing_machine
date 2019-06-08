@@ -33,8 +33,9 @@ class Rules:
 
 
 class Tape:
-    def __init__(self):
+    def __init__(self, tl=1000):
         self._t = []
+        self.tlen = tl
 
     def cons_input(self):
         s = input("Input your tape: ")
@@ -47,7 +48,7 @@ class Tape:
                 for j in i:
                     self._t.append(int(j))
 
-        while len(self._t) < 1000:
+        while len(self._t) < self.tlen:
             self._t.append(0)
 
 
@@ -68,18 +69,59 @@ class TM:
             self.t._t[self.point] = buff[0]
             self.cs = buff[1]
             self.point += buff[2]
-            if self.point == -1 or self.point == 1000:
-                print("Machine out of tape range")
-        print(self.t._t)
+            if self.point == -1 or self.point == 1000 or i == 10000:
+                print("Machine cycled or out of tape range")
+                break
+
+    def output(self, filename):
+        s = ""
+        for i in self.t._t:
+            s += str(i)
+        with open(filename, 'w') as f:
+            print(s, file=f)
 
 
 if __name__ == '__main__':
-    # tA132 = TM("tapeA132.txt", "condA132.txt")
+    # tA132 = TM("A132/tapeA132.txt", "A132/condA132.txt")
     # tA132.start()
     #
     # print("-------------")
     # print("-------------")
     # print("-------------")
+    #
+    # tplus = TM("plus/tapeplus.txt", "plus/condplus.txt")
+    # tplus.start()
+    #
+    # print("-------------")
+    # print("-------------")
+    # print("-------------")
 
-    tplus = TM("tapeplus.txt", "condplus.txt")
-    tplus.start()
+    a = 0
+    b = 0
+    bo = False
+
+    with open("mul/tapemul.txt", 'r') as f:
+        for i in f:
+            for j in i:
+                if j == '1' and not bo:
+                    a += 1
+                elif a > 0 and j == '0':
+                    bo = True
+                elif bo and j == '1':
+                    b += 1
+
+    print(f"Multiplication of {a - 1} and {b - 1}")
+
+    tmul = TM("mul/tapemul.txt", "mul/condmul.txt")
+    tmul.start()
+    tmul.output("mul/resmul.txt")
+
+    c = 0
+    with open("mul/resmul.txt", 'r') as f:
+        for i in f:
+            for j in i:
+                if j == '1':
+                    c += 1
+
+    print(f"Result is {c - 1}")
+    print("You can find result tape by the address ./mul/resmul.txt")
