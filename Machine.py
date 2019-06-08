@@ -33,7 +33,7 @@ class Rules:
 
 
 class Tape:
-    def __init__(self, tl=1000):
+    def __init__(self, tl=10000):
         self._t = []
         self.tlen = tl
 
@@ -69,7 +69,7 @@ class TM:
             self.t._t[self.point] = buff[0]
             self.cs = buff[1]
             self.point += buff[2]
-            if self.point == -1 or self.point == 1000 or i == 10000:
+            if self.point == -1 or self.point == self.t.tlen or i == 200000000:
                 print("Machine cycled or out of tape range")
                 break
 
