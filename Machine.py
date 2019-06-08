@@ -84,6 +84,7 @@ class TM:
 if __name__ == '__main__':
     # tA132 = TM("A132/tapeA132.txt", "A132/condA132.txt")
     # tA132.start()
+    # tA132.output("A132/resA132.txt")
     #
     # print("-------------")
     # print("-------------")
@@ -91,6 +92,7 @@ if __name__ == '__main__':
     #
     # tplus = TM("plus/tapeplus.txt", "plus/condplus.txt")
     # tplus.start()
+    # tplus.output("plus/resplus.txt")
     #
     # print("-------------")
     # print("-------------")
