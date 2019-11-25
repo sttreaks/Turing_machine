@@ -24,14 +24,14 @@ class Rules:
         """
         print(f"Input state {len(self.q.keys()) + 1}:")
         print("\nIf u stay in cell with 0")
-        x0 = int(input("What symbol machine write in that cell?: "))
+        x0 = int(input("What symbol machine will write in that cell?: "))
         q0 = int(input("What state will be next?: "))
-        d0 = int(input("Which way you machine will go next? (-1 if left; 0 if stay; 1 if right):"))
+        d0 = int(input("Which way your machine will go next? (-1 if left; 0 if stay; 1 if right):"))
 
-        print("\\nIf u stay in cell with 1")
-        x1 = int(input("What symbol machine write in that cell?: "))
+        print("\nIf u stay in cell with 1")
+        x1 = int(input("What symbol machine will write in that cell?: "))
         q1 = int(input("What state will be next?: "))
-        d1 = int(input("Which way you machine will go next? (-1 if left; 0 if stay; 1 if right):"))
+        d1 = int(input("Which way your machine will go next? (-1 if left; 0 if stay; 1 if right):"))
 
         self.q.update({self.st: {0: (x0, q0, d0), 1: (x1, q1, d1)}})
         self.st += 1
@@ -53,7 +53,7 @@ class Rules:
 
     def cons_read(self):
         """
-        Input how many states u want enter.
+        Input how many states you want to enter.
 
         :return:
         """
@@ -64,7 +64,7 @@ class Rules:
 
 class Tape:
     """
-    Class for creating tape. Have only 1 and 0 symbols.
+    Class for creating tape. Has only 1 and 0 symbols.
     """
 
     def __init__(self, tl=100000):
@@ -113,14 +113,14 @@ class TM:
         """
         self.r = Rules()
         self.t = Tape()
-        self.point = 0  # Position of cell where machine stay now
+        self.point = 0  # Index of cell where machine is now
         self.cs = 1  # Number of current machine state
         self.t.file_read(f1)
         self.r.file_read(f2)
         self.cycled = False
 
     def start(self, logging=False):
-        """Starting turing machine. All process will be done at this function as well.
+        """Starting turing machine. The whole process will be done at this function as well.
 
         :return:
         """
@@ -131,8 +131,8 @@ class TM:
             self.t._t[self.point] = current_state[0]
             self.cs = current_state[1]
             self.point += current_state[2]
-            if self.point == -1 or self.point == self.t.tlen:  # checking if machine out of tape range
-                print("Machine cycled or out of tape range")
+            if self.point == -1 or self.point == self.t.tlen:  # Checking if machine out of tape range
+                print("Machine is cycled or out of tape range")
                 break
 
     def output(self, filename):
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     bo = False
 
     with open("mul/tapemul.txt", 'r') as f:
-        line = f.readline()[1:]  # first 0 symbol (our tape starts from it)
+        line = f.readline()[1:]  # first "0" symbol (our tape starts from it)
         a = line[:line.find("0")].count("1")
         b = line[line.find("0"):].count("1")
 
