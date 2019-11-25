@@ -91,6 +91,7 @@ Here you can see full machine working cycle for better understand it.
 0111100000010
 0111100000000
 0111110
+```
 
 There is something beautiful at procese, is it?
 
