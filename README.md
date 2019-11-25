@@ -8,17 +8,17 @@ Input tape: ```0011111110```
 Machine finds all ```"0"``` before ```"1"``` and deletes shift 1s so that only 1 ```"0"``` stay before 1s.
 Summing 2 intrgers:
 Integer, in unary system, presented as n+1 ```"1"```, so if we present 0 as tape it seems like ```"010"``` 4 seems like ```"0111110"``` etc.
-So tape for suming 5 and 5 seems like ```"011111101111110"```. For correct summing we need to shift second substring (delete ```"0"``` between integers), then we need to and delete 1 ```"1"``` becouse it is responsible for 0.
+So tape for suming 5 and 5 seems like ```"011111101111110"```. For correct summing we need to shift second substring (delete ```"0"``` between integers), then we need to delete 1 ```"1"``` at second num becouse it is responsible for 0.
 Correct machine will return such a string: ```"0111111111110"```.
 
 Multipling to integers:
 Firstly, we need to check multipling by 0 and delete all extra ```"1"```. Secondly, if both integers ```>0``` we need to create algorithm for multipling.
 
-Here is explaining of my realisation:
+Here is explaining to my realisation:
 Multiplication is same as summing num to itself n times Firstly we want to delete "1" on second integer. It will help us to copy num n times correctly.
 ```"011101110" -> "01110110"```
 Now we need to start replicating.
-We are changing last ```"1"``` on ```"0"```, it is needed for understanding that we are already replicated second num 1 time.
+We are changing last ```"1"``` on ```"0"```, it is needed for understanding that we have already replicated second num 1 time.
 How do we replicate second num? We successively replace ```"1"``` on ```"0"``` and then add extra ```"1"``` at the end of tape we will return ```"1"``` that we replaced back (if we dont we will lose our second num and multipling will be broken). Then we need to repeat that operation with all next ```"1"``` of second num.
 Here you can see how it works:
 ```
