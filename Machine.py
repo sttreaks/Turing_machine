@@ -166,6 +166,8 @@ class TM:
 
 
 if __name__ == '__main__':
+    '''Examples, uncomment if it necessary'''
+
     # '''Example from our university'''
     # tA132 = TM("A132/tapeA132.txt", "A132/condA132.txt")
     # tA132.start()
@@ -192,10 +194,10 @@ if __name__ == '__main__':
     #     c = f.readline().count("1")
     #
     # print(f"Result is {c}")
-
-    print("-------------")
-    print("-------------")
-    print("-------------")
+    #
+    # print("-------------")
+    # print("-------------")
+    # print("-------------")
 
     '''Analyzing what numbers are at tape for multiplying and show it'''
     bo = False
