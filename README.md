@@ -95,6 +95,6 @@ Here you can see full machine working cycle for better understand it.
 
 There is something beautiful at procese, is it?
 
-At the program you can on loging and watch for multipling bigger data. Enjoy it.
+At the program you can on logging and watch for multipling bigger data. Enjoy it.
 
 
