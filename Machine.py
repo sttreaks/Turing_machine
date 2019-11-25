@@ -116,13 +116,15 @@ class TM:
         self.r.file_read(f2)
         self.cycled = False
 
-    def start(self):
+    def start(self, logging=False):
         """Starting turing machine. All process will be done at this function as well.
 
         :return:
         """
         while self.cs != 0:
             current_state = self.r.q[self.cs][self.t._t[self.point]]
+            if logging:
+                print(str(self))
             self.t._t[self.point] = current_state[0]
             self.cs = current_state[1]
             self.point += current_state[2]
@@ -169,6 +171,7 @@ if __name__ == '__main__':
     '''Examples, uncomment if it necessary'''
 
     # '''Example from our university'''
+    #
     # tA132 = TM("A132/tapeA132.txt", "A132/condA132.txt")
     # tA132.start()
     # tA132.output("A132/resA132.txt")
@@ -198,7 +201,7 @@ if __name__ == '__main__':
     # print("-------------")
     # print("-------------")
     # print("-------------")
-
+    #
     '''Analyzing what numbers are at tape for multiplying and show it'''
     bo = False
 
@@ -210,7 +213,7 @@ if __name__ == '__main__':
     print(f"Multiplication of {a - 1} and {b - 1}")
 
     tmul = TM("mul/tapemul.txt", "mul/condmul.txt")
-    tmul.start()
+    tmul.start(logging=False)
     tmul.output("mul/resmul.txt")
 
     c = 0
@@ -221,4 +224,4 @@ if __name__ == '__main__':
         c = f.readline().count("1")
 
     print(f"Result is {c - 1}")
-    print("You can find result tape by the address ./mul/resmul.txt")
+    print("You can find result path by the address ./mul/resmul.txt")
