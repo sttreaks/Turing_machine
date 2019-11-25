@@ -1,11 +1,11 @@
 # Turing_machine
 
 ## Turing machine implemintation 
-Turing machine is using unary (only 0 and 1 symbols) alphabet. There are some examples how it works:
+Turing machine uses unary (only 0 and 1 symbols) alphabet. There are some examples how it works:
 At the start and at the end of tape there must be a ```“0”``` drawn
 A132 (University example):
 Input tape: ```0011111110```
-Machine finds all ```"0"``` before ```"1"``` and deletes shift 1s so that only 1 ```"0"``` stay before 1s.
+Machine finds all ```"0"``` before ```"1"``` and deletes shift ```"1..1"``` so that only 1 ```"0"``` stays before ```"1..1"```.
 Summing 2 intrgers:
 Integer, in unary system, presented as n+1 ```"1"```, so if we present 0 as tape it seems like ```"010"``` 4 seems like ```"0111110"``` etc.
 So tape for suming 5 and 5 seems like ```"011111101111110"```. For correct summing we need to shift second substring (delete ```"0"``` between integers), then we need to delete 1 ```"1"``` at second num becouse it is responsible for 0.
